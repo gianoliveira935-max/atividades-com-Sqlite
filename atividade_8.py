@@ -1,5 +1,19 @@
-kms_percorridos = float(input("digite a quantidade de kms percorridas:"))
-combustivel_gasto = float(input("digite a quantidade de combustivel gasto na viagem: "))
+while True:
+    try:
+        temperatura = float(input("Digite a temperatura: "))
+        break
+    except ValueError:
+        print("Valor inválido. Digite apenas números para a temperatura.")
 
-consumo_medio = kms_percorridos / combustivel_gasto
-print(f"o consumo medio do caroo é de {consumo_medio:.2f} km")
+while True:
+    escala = input("Digite a escala (C/F): ").strip().upper()
+    if escala in ["C", "F"]:
+        break
+    print("Escala inválida. Digite apenas C ou F.")
+
+if escala == "C":
+    convertido = (temperatura * 9 / 5) + 32
+    print(f"{temperatura}°C equivale a {convertido:.2f}°F")
+elif escala == "F":
+    convertido = (temperatura - 32) * 5 / 9
+    print(f"{temperatura}°F equivale a {convertido:.2f}°C")
